@@ -1,0 +1,41 @@
+{
+  "name": "echarts-mcp",
+  "description": "A MCP server to generate echarts image",
+  "version": "0.0.1",
+  "main": "cli.js",
+  "bin": "cli.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "start": "node cli.js",
+    "test": "node test-charts.js",
+    "inspect": "npx @modelcontextprotocol/inspector node cli.js",
+    "release": "bumpp --commit --tags --push && npm publish"
+  },
+  "devDependencies": {
+    "bumpp": "^10.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "canvas": "^3.1.2",
+    "echarts": "^5.6.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.22.4"
+  },
+  "files": [
+    "*.js",
+    "src/**/*.js"
+  ],
+  "keywords": [
+    "echarts",
+    "mcp",
+    "mcp-echarts"
+  ],
+  "author": "w2xi",
+  "license": "MIT"
+}
