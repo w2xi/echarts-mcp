@@ -30,7 +30,7 @@
 
 ```bash
 # 克隆仓库
-git clone <your-repo-url>
+git clone https://github.com/w2xi/echarts-mcp.git
 cd echarts-mcp
 
 # 安装依赖

@@ -32,7 +32,7 @@ If you want to run from source:
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/w2xi/echarts-mcp.git
 cd echarts-mcp
 
 # Install dependencies

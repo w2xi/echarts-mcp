@@ -8,6 +8,11 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/w2xi/echarts-mcp.git"
+  },
+  "homepage": "https://github.com/w2xi/echarts-mcp",
   "scripts": {
     "start": "node cli.js",
     "test": "node test-charts.js",
