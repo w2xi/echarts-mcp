@@ -5,6 +5,7 @@ const path = require("path");
 const { v4: uuid } = require('uuid');
 const { HOME_DIR, DOWNLOAD_DIR } = require("../constants/path");
 const { isDirectoryWritable } = require("./writable");
+const { uploadFile } = require("./upload");
 
 let baseDir = HOME_DIR;
 
@@ -34,8 +35,11 @@ const generateImage = async ({ echartsConfigString, width = 800, height = 600 })
 
     fs.writeFileSync(filePath, buffer);
 
+    const remoteUrl = await uploadFile(buffer, fileName);
+
     return {
       url: filePath,
+      remote: remoteUrl,
     }
   } catch (error) {
     return {
