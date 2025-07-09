@@ -1,0 +1,15 @@
+{
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.wrappingIndent": "indent",
+    "editor.minimap.maxColumn": 120,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "files.insertFinalNewline": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    }
+}
