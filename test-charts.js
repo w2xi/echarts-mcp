@@ -57,6 +57,6 @@ const echartsConfig = {
   ],
 }
 
-generateImage({ echartsConfigString: JSON.stringify(echartsConfig) }).then(({ url, error }) => {
+generateImage({ echartsConfig }).then(({ url, error }) => {
   console.log(url, error)
 })
