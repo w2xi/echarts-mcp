@@ -14,13 +14,17 @@
   },
   "homepage": "https://github.com/w2xi/echarts-mcp",
   "scripts": {
+    "prepare": "husky",
     "start": "node cli.js",
     "test": "node test-charts.js",
     "inspect": "npx @modelcontextprotocol/inspector node cli.js",
-    "release": "bumpp --commit --tags --push && npm publish"
+    "release": "bumpp --commit --tags --push && npm publish",
+    "format": "prettier --write \"**/*.js\""
   },
   "devDependencies": {
-    "bumpp": "^10.2.0"
+    "bumpp": "^10.2.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,8 @@
+dist
+node_modules
+.cache
+.temp
+*.min.js
+*.min.css
+CHANGELOG.md
+LICENSE 
