@@ -1,7 +1,7 @@
 {
   "name": "echarts-mcp",
   "description": "A MCP server to generate echarts image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "cli.js",
   "bin": "cli.js",
   "publishConfig": {
