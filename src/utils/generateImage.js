@@ -1,12 +1,12 @@
-const echarts = require("echarts");
-const { createCanvas } = require("canvas");
-const fs = require("fs");
-const path = require("path");
-const { v4: uuid } = require('uuid');
-const { HOME_DIR, DOWNLOAD_DIR } = require("../constants/path");
-const { isDirectoryWritable } = require("./writable");
+const echarts = require('echarts')
+const { createCanvas } = require('canvas')
+const fs = require('fs')
+const path = require('path')
+const { v4: uuid } = require('uuid')
+const { HOME_DIR, DOWNLOAD_DIR } = require('../constants/path')
+const { isDirectoryWritable } = require('./writable')
 
-let baseDir = HOME_DIR;
+let baseDir = HOME_DIR
 
 const defaultEchartsConfig = {
   backgroundColor: '#fff',
@@ -14,25 +14,25 @@ const defaultEchartsConfig = {
 
 const generateImage = async ({ echartsConfigString, width = 800, height = 600 }) => {
   try {
-    const { writable } = await isDirectoryWritable(DOWNLOAD_DIR);
+    const { writable } = await isDirectoryWritable(DOWNLOAD_DIR)
 
     if (writable) {
-      baseDir = DOWNLOAD_DIR;
+      baseDir = DOWNLOAD_DIR
     }
 
-    const canvas = createCanvas(width, height);
-    const chart = echarts.init(canvas);
+    const canvas = createCanvas(width, height)
+    const chart = echarts.init(canvas)
 
-    const echartsConfig = parseJsonWithFunctions(echartsConfigString || '{}');
+    const echartsConfig = parseJsonWithFunctions(echartsConfigString || '{}')
 
-    chart.setOption({ ...defaultEchartsConfig, ...echartsConfig });
+    chart.setOption({ ...defaultEchartsConfig, ...echartsConfig })
 
-    const buffer = canvas.toBuffer("image/png");
+    const buffer = canvas.toBuffer('image/png')
 
-    const fileName = `${uuid()}.png`;
-    const filePath = path.join(baseDir, fileName);
+    const fileName = `${uuid()}.png`
+    const filePath = path.join(baseDir, fileName)
 
-    fs.writeFileSync(filePath, buffer);
+    fs.writeFileSync(filePath, buffer)
 
     return {
       url: filePath,
@@ -42,10 +42,10 @@ const generateImage = async ({ echartsConfigString, width = 800, height = 600 })
       error: error.message,
     }
   }
-};
+}
 
 function parseJsonWithFunctions(jsonString) {
-  return Function(`"use strict"; return ${jsonString}`)();
+  return Function(`"use strict"; return ${jsonString}`)()
 }
 
 module.exports = { generateImage }

@@ -1,13 +1,13 @@
-const { generateImage } = require("./src/utils/generateImage");
+const { generateImage } = require('./src/utils/generateImage')
 
 const echartsConfig = {
   xAxis: {
     type: 'category',
-    boundaryGap: false
+    boundaryGap: false,
   },
   yAxis: {
     type: 'value',
-    boundaryGap: [0, '30%']
+    boundaryGap: [0, '30%'],
   },
   visualMap: {
     type: 'piecewise',
@@ -18,14 +18,14 @@ const echartsConfig = {
       {
         gt: 1,
         lt: 3,
-        color: 'rgba(0, 0, 180, 0.4)'
+        color: 'rgba(0, 0, 180, 0.4)',
       },
       {
         gt: 5,
         lt: 7,
-        color: 'rgba(0, 0, 180, 0.4)'
-      }
-    ]
+        color: 'rgba(0, 0, 180, 0.4)',
+      },
+    ],
   },
   series: [
     {
@@ -34,12 +34,12 @@ const echartsConfig = {
       symbol: 'none',
       lineStyle: {
         color: '#5470C6',
-        width: 5
+        width: 5,
       },
       markLine: {
         symbol: ['none', 'none'],
         label: { show: false },
-        data: [{ xAxis: 1 }, { xAxis: 3 }, { xAxis: 5 }, { xAxis: 7 }]
+        data: [{ xAxis: 1 }, { xAxis: 3 }, { xAxis: 5 }, { xAxis: 7 }],
       },
       areaStyle: {},
       data: [
@@ -51,12 +51,12 @@ const echartsConfig = {
         ['2019-10-15', 300],
         ['2019-10-16', 450],
         ['2019-10-17', 300],
-        ['2019-10-18', 100]
-      ]
-    }
-  ]
-};
+        ['2019-10-18', 100],
+      ],
+    },
+  ],
+}
 
 generateImage({ echartsConfigString: JSON.stringify(echartsConfig) }).then(({ url, error }) => {
-  console.log(url, error);
-});
+  console.log(url, error)
+})

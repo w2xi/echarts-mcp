@@ -1,12 +1,12 @@
-const { McpServer } = require("@modelcontextprotocol/sdk/server/mcp.js");
-const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
-const registerTools = require("./tools");
-const version = require("../package.json").version;
+const { McpServer } = require('@modelcontextprotocol/sdk/server/mcp.js')
+const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js')
+const registerTools = require('./tools')
+const version = require('../package.json').version
 
 function runMCPServer() {
   const server = new McpServer(
     {
-      name: "Echarts MCP",
+      name: 'Echarts MCP',
       version,
     },
     {
@@ -14,18 +14,18 @@ function runMCPServer() {
         tools: {},
       },
     }
-  );
+  )
 
-  server.onerror = (error) => console.error("[MCP Error]", error);
-  process.on("SIGINT", async () => {
-    await server.close();
-    process.exit(0);
-  });
+  server.onerror = error => console.error('[MCP Error]', error)
+  process.on('SIGINT', async () => {
+    await server.close()
+    process.exit(0)
+  })
 
-  registerTools(server);
+  registerTools(server)
 
-  const transport = new StdioServerTransport();
-  server.connect(transport);
+  const transport = new StdioServerTransport()
+  server.connect(transport)
 }
 
-module.exports = runMCPServer;
+module.exports = runMCPServer
